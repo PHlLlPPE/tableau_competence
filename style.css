@@ -1,0 +1,270 @@
+/* Paramettre Géneral */
+
+html,body{
+    scroll-behavior: smooth;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #121212;
+    color: #f8f9fa;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+ 
+}
+
+main{
+    flex: 1;
+    padding: 20px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: #f8f9fa;
+    margin-bottom: 20px;
+    margin-top: 50px;
+    text-align: center;
+}
+
+/* Style table */
+
+table {
+    width: 90% !important;
+    margin: 20px auto;
+    border-collapse: collapse;
+    background-color: #1e1e1e;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+}
+
+thead{
+background-color: #292929;
+}
+
+thead th {
+
+    padding: 15px;
+    text-align: left;
+    font-size: 16px;
+    color: #232529;
+    border-bottom: 2px solid #393939;
+}
+
+tbody tr {
+    border-bottom: 1px solid #393939;
+}
+
+tbody tr:nth-child(even){
+    background-color: #232323;
+}
+
+tbody tr:hover {
+background-color: #333333;
+cursor: pointer;
+}
+
+tbody td {
+    padding: 15px;
+    text-align: left;
+    color: #f8f9fa;
+}
+
+/* Boutons */
+
+button {
+    display: inline-block;
+    margin: 10px auto;
+    border: 1px solid #393939;
+    border-radius:  5px;
+    background-color: #1e1e1e;
+    color: #f8f9fa;
+    font-size: 14px;
+}
+
+input:focus, slect:focus, textarea:focus {
+    border-color: #232529;
+    outline: none;
+}
+
+/* Navigation  */
+
+nav {
+background-color: #1f1f1f;    
+padding: 10px 20px;
+box-shadow: 0 2px 4px rgb(0, 0, 0, 0.5);
+}
+
+nav a {
+    color: #232529;
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 14px;
+    transition: color 0.3s ease-in-out;
+}
+
+nav a:hover {
+    color: #f8f9fa;
+}
+
+/* Footer  */
+
+footer{
+   
+    flex-shrink: 0;
+    background-color: #1e1e1e;
+    text-align: center;
+    padding: 15px 0;
+    border-top: 1px solid #393939;
+
+}
+
+footer a {
+    color: #232529;
+    text-decoration: none;
+}
+
+footer a:hover{
+    color: #f8f9fa;
+}
+
+.deco {
+    color: white;
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.connect {
+    color: white;
+    margin-left: 10px;
+}
+
+/* style form  */
+
+.formlogin, .formregister{
+    background-color: #1e1e1e;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgb(0, 0, 0, 0.5);
+    width: 100%;
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin: 0px auto 50px auto;
+}
+
+/* style input  */
+
+input[type=text],input[type=password],input[type=email], button {
+    width: 100%;
+    padding: 10px 0px;
+    padding-left: 5px;
+    padding-right: 5px;
+    border-radius: 5px;
+    border: 1px solid #f8f9fa;
+    font-size: 16px;
+    box-sizing: border-box;
+    
+}
+
+input[type=text],input[type=password],input[type=email]{
+    background-color: #292929;
+    color: #f8f9fa;
+    border: 1px solid #393939;
+}
+
+input[type=text],input[type=password],input[type=email]{
+outline: none;
+border-bottom: #232529;
+
+}
+
+select{
+    width: 100%;
+    text-align: center;
+    font-size: 18px;
+    background-color: #1e1e1e;
+    border: 1px solid #f8f9fa;
+    border-radius: 5px;
+    padding: 5px;
+    color: #f8f9fa;
+}
+
+select:hover{
+    background-color: transparent;
+}
+
+.register, .connexion{
+    background-color: #393939;
+    border: none;
+    cursor: pointer;
+    transition: all 0.5s ease-in-out;
+}
+
+.register:hover, .connexion:hover{
+    background-color: transparent;
+    border: 1px solid #f8f9fa;
+    transform: scale(105%);
+}
+
+.deconnexion{
+    display: flex;
+    justify-content: center;
+    background-color: #393939;
+    border: none;
+    cursor: pointer;
+    transition: all 0.5s ease-in-out;
+    width: 15%;
+}
+
+.deconnexion a {
+    text-decoration: none;
+}
+
+.deconnexion:hover{
+    background-color: transparent;
+    border: 1px solid #f8f9fa;
+    transform: scale(105%);
+}Créer un compte
+
+/* position p  */
+
+.pregister, .plogin{
+    display: flex;
+    justify-content: center;
+    font-size: 12px;
+}
+
+/* Style additionel  */
+
+label{
+    font-size: 14px;
+    color: #b0b0b0;
+}
+
+
+
+/* ICI COMMENCE LE TROLL  */
+
+.troll{
+    display: flex;
+    margin: 0 auto 75px ;
+}
+
+img{
+    margin: 0 auto auto ;
+    width: 25%;
+    height: 25%;
+    transition: transform 2s ease;
+    transform: rotate(-360deg);
+}
+
+img:hover{
+    transform: rotate(360deg);
+}
+
