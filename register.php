@@ -27,18 +27,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $user_id = $pdo->lastInsertId();
 
             // Ajouter des compétences par défaut
-            $stmt = $pdo->prepare('
+                $stmt = $pdo->prepare('
                 INSERT INTO skills (user_id, skill_name, level)
                 VALUES 
                 (?, "Maquetter des interfaces", 1),
                 (?, "Interface Utilisateur", 1),
                 (?, "Développer la partie dynamique", 1),
                 (?, "Installer et configurer son environnement", 1),
-                (?, "Développer les composant SQL / NoSQL", 1),
+                (?, "Développer les composant ' . "\u{00A0}\u{00A0}\u{00A0}\u{00A0}\u{00A0}\u{00A0}" . 'SQL / NoSQL", 1),
                 (?, "Développer des composants coté serveur", 1),
                 (?, "Documenter le déploiement", 1),
                 (?, "Mettre en place une DB", 1)
-            ');
+            ');        
             $stmt->execute([$user_id, $user_id, $user_id, $user_id, $user_id, $user_id, $user_id, $user_id]);
 
             // Rediriger vers la page de connexion

@@ -4,8 +4,8 @@ require 'db.php';
 require_login();
 
 $user_id = $_SESSION['user_id']; // ID de l'utilisateur connecté
+$message = ''; // Variable pour stocker le message de confirmation ou d'erreur
 
-// Traitement des requêtes POST pour modifier les niveaux de compétence
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['skill_id'], $_POST['level'])) {
     $skill_id = (int)$_POST['skill_id'];
     $level = (int)$_POST['level'];
@@ -18,9 +18,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['skill_id'], $_POST['l
     if ($skill && (is_admin() || $skill['user_id'] == $user_id)) {
         $stmt = $pdo->prepare('UPDATE skills SET level = ? WHERE id = ?');
         $stmt->execute([$level, $skill_id]);
-        echo "<p style='color: green;'>Le niveau de compétence a été mis à jour avec succès.</p>";
+        $message = "Le niveau de compétence a été mis à jour avec succès.";
     } else {
-        echo "<p style='color: red;'>Erreur : Vous n’avez pas les autorisations nécessaires.</p>";
+        $message = "Erreur : Vous n’avez pas les autorisations nécessaires.";
     }
 }
 
@@ -44,31 +44,20 @@ foreach ($users as $row) {
 ?>
 
 <!DOCTYPE html>
-<html>
+<html lang="fr">
 <head>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tableau des compétences</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
     <style>
-        table {
-            border-collapse: collapse;
-            width: 100%;
-        }
-        th, td {
-            border: 1px solid black;
-            padding: 8px;
-            text-align: left;
-        }
-        th {
-            background-color: #f2f2f2;
-        }
+        
     </style>
 </head>
-
 <body>
     <main>
-        <h1>Tableau des compétences</h1>
+        <h1 class="titretable">Tableau des compétences</h1>
         <table>
             <thead>
                 <tr>
@@ -109,12 +98,39 @@ foreach ($users as $row) {
             </tbody>
         </table>
         <br>
-               <button type="submit" class="deconnexion"><a href="logout.php" class="deco">Déconnexion</a></button>
+        <button type="submit" class="deconnexion"><a href="logout.php" class="deco">Déconnexion</a></button>
     </main>
-        <footer>
-        &copy; 2024 Philippe Gaulin <a href="https://github.com/PHlLlPPE" target="_blank" style="color: #ffffff;">
-    <i class='bx bxl-github'></i>
-</a>
-        </footer>
+
+    <!-- Popup de confirmation -->
+    <div id="overlay"></div>
+    <div id="popup">
+        <p id="popup-message"><?= htmlspecialchars($message) ?></p>
+        <button onclick="closePopup()">OK</button>
+    </div>
+
+    <footer>
+    2024 &copy; Philippe Gaulin | Tout droit réservé.
+        <a href="https://github.com/PHlLlPPE" target="_blank" style="color: #ffffff;">
+            <i class='bx bxl-github'></i>
+        </a>
+    </footer>
+
+    <script>
+        // Affiche le popup si un message est défini
+        document.addEventListener('DOMContentLoaded', function() {
+            const message = <?= json_encode($message) ?>;
+            if (message) {
+                document.getElementById('popup-message').textContent = message;
+                document.getElementById('popup').classList.add('active');
+                document.getElementById('overlay').classList.add('active');
+            }
+        });
+
+        // Fonction pour fermer le popup
+        function closePopup() {
+            document.getElementById('popup').classList.remove('active');
+            document.getElementById('overlay').classList.remove('active');
+        }
+    </script>
 </body>
 </html>

@@ -1,5 +1,18 @@
 /* Paramettre Géneral */
 
+th {
+    background-color: #f2f2f2;
+}
+th, td {
+    border: 1px solid black;
+    padding: 8px;
+    text-align: left;
+}
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
 html,body{
     scroll-behavior: smooth;
     height: 100%;
@@ -29,6 +42,66 @@ h1, h2, h3, h4, h5, h6 {
     text-align: center;
 }
 
+.titretable {
+    text-decoration: underline;
+}
+
+/* Styles pour le popup */
+#popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    max-width: 400px;
+    padding: 20px;
+    background: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    text-align: center;
+    z-index: 1000;
+}
+
+#popup.active {
+    display: block;
+}
+
+#popup p {
+    margin: 0 0 15px;
+    font-size: 16px;
+    color: #232529;
+}
+
+#popup button {
+    padding: 10px 20px;
+    background: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#popup button:hover {
+    background: #45a049;
+}
+
+/* Overlay pour désactiver le fond */
+#overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+}
+
+#overlay.active {
+    display: block;
+}
+
 /* Style table */
 
 table {
@@ -48,7 +121,7 @@ background-color: #292929;
 thead th {
 
     padding: 15px;
-    text-align: left;
+    text-align: center;
     font-size: 16px;
     color: #232529;
     border-bottom: 2px solid #393939;
@@ -62,10 +135,10 @@ tbody tr:nth-child(even){
     background-color: #232323;
 }
 
-tbody tr:hover {
+/* tbody tr:hover {
 background-color: #333333;
 cursor: pointer;
-}
+} */
 
 tbody td {
     padding: 15px;
@@ -187,6 +260,7 @@ border-bottom: #232529;
 select{
     width: 100%;
     text-align: center;
+    text-align-last: center;
     font-size: 18px;
     background-color: #1e1e1e;
     border: 1px solid #f8f9fa;
@@ -195,9 +269,9 @@ select{
     color: #f8f9fa;
 }
 
-select:hover{
+/* select:hover{
     background-color: transparent;
-}
+} */
 
 .register, .connexion{
     background-color: #393939;
