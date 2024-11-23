@@ -75,10 +75,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <p class="pregister">Déjà un compte ? <a href="login.php" class="connect">Connectez-vous ici</a>.</p>
     </form>
     </main>
-    <footer>
-    &copy; 2024 Philippe Gaulin <a href="https://github.com/PHlLlPPE" target="_blank" style="color: #ffffff;">
-    <i class='bx bxl-github'></i>
-</a>
+    <<footer>
+    2024 &copy; Philippe Gaulin | Tout droit réservé.
+        <a href="https://github.com/PHlLlPPE" target="_blank" style="color: #ffffff;">
+            <i class='bx bxl-github'></i>
+        </a>
     </footer>
+    
 </body>
 </html>

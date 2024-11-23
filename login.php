@@ -41,9 +41,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <h1 class="troll">Vous verrez, c'est mieux que les post-it !</h1>
     <img src="post-it.png" alt="post-it">
     <footer>
-    &copy; 2024 Philippe Gaulin <a href="https://github.com/PHlLlPPE" target="_blank" style="color: #ffffff;">
-    <i class='bx bxl-github'></i>
-</a>
+    2024 &copy; Philippe Gaulin | Tout droit réservé.
+        <a href="https://github.com/PHlLlPPE" target="_blank" style="color: #ffffff;">
+            <i class='bx bxl-github'></i>
+        </a>
     </footer>
 </body>
 </html>
